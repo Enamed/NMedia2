@@ -6,15 +6,136 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="54dp"
+        android:layout_height="43dp"
+        android:layout_margin="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:contentDescription="TODO"
+        app:barrierDirection="bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/netology_pic" />
+
     <TextView
+        android:id="@+id/published"
+        android:layout_width="274dp"
+        android:layout_height="20dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+
+        android:textAllCaps="false"
+        tools:layout_editor_absoluteX="77dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:text="@sample/posts.json/data/author" />
+
+    <TextView
+        android:id="@+id/date_news"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nmedia"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+
+        app:layout_constraintBottom_toTopOf="@+id/news"
+        app:layout_constraintTop_toBottomOf="@+id/published"
+        app:layout_constraintVertical_bias="0.19"
+        tools:layout_editor_absoluteX="77dp"
+        tools:text="@sample/posts.json/data/pubblished" />
+
+    <ImageView
+        android:id="@+id/menu_news"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintStart_toEndOf="@+id/published"
+        app:srcCompat="@drawable/ic_baseline_more_vert_24"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/news"
+        android:layout_width="377dp"
+        android:layout_height="176dp"
+
+
+        android:text="Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы меняемся сами и помогаем меняться студентам: расти от новичков до уверенных профессионалов.  Но самое важное остаётся — наша вера в то, что в каждом заложена сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. А наша миссия — помочь выбрать путь и начать цепочку перемен → http://netolo.gy/fyb "
+        app:layout_constraintStart_toStartOf="@+id/avatar"
+        tools:layout_editor_absoluteY="76dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="news"
+        tools:layout_editor_absoluteY="76dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="visio"
+        tools:layout_editor_absoluteY="731dp" />
+
+    <ImageView
+        android:id="@+id/visio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_visibility_24"
+        tools:layout_editor_absoluteX="337dp"
+        tools:layout_editor_absoluteY="264dp" />
+
+    <ImageView
+        android:id="@+id/share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_share_24"
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="262dp" />
+
+    <ImageView
+        android:id="@+id/like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="204dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/avatar"
+        app:srcCompat="@drawable/ic_baseline_favorite_24" />
+
+    <TextView
+        android:id="@+id/count_like"
+        android:layout_width="36dp"
+        android:layout_height="22dp"
+        android:text="10"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/share"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/like"
+        tools:layout_editor_absoluteY="264dp" />
+
+    <TextView
+        android:id="@+id/share_news"
+        android:layout_width="29dp"
+        android:layout_height="22dp"
+        android:text="5"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/visio"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/share"
+        tools:layout_editor_absoluteY="264dp" />
+
+    <TextView
+        android:id="@+id/visio_news"
+        android:layout_width="31dp"
+        android:layout_height="23dp"
+        android:text="5"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="361dp"
+        tools:layout_editor_absoluteY="264dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
