@@ -9,76 +9,80 @@
 
     <ImageView
         android:id="@+id/avatar"
-        android:layout_width="54dp"
-        android:layout_height="43dp"
-        android:layout_margin="15dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="TODO"
-        app:barrierDirection="bottom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="@dimen/posts_avatar_size"
+        android:layout_height="@dimen/posts_avatar_size"
+        android:layout_marginBottom="@dimen/common_spacing"
         app:srcCompat="@mipmap/netology_pic"
-        tools:ignore="ContentDescription,HardcodedText" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="date_news,avatar,title_news,menu_news"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="59dp" />
-
-
-    <TextView
-        android:id="@+id/title_news"
-        android:layout_width="274dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="16dp"
-        android:ellipsize="end"
-        android:singleLine="true"
-
-        android:text="Нетология. Университет интернет-профессий будущего"
-
-        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@id/header"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="avatar,title_news,menu_news"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="59dp" />
+
+    <TextView
+        android:id="@+id/title_news"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:ellipsize="end"
+        android:singleLine="true"
+        tools:text="@sample/posts.json/data/author"
+        app:layout_constraintBottom_toTopOf="@id/date_news"
+        app:layout_constraintEnd_toStartOf="@id/menu_news"
+        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintTop_toTopOf="@id/avatar"
+        app:layout_constraintVertical_chainStyle="packed" />
+
     <ImageView
         android:id="@+id/menu_news"
-        android:layout_width="24dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
         android:background="@android:color/transparent"
         android:contentDescription="TODO"
-
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_more_vert_24"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/news"
-        android:layout_width="match_parent"
+        android:id="@+id/date_news"
+        tools:text="@sample/posts.json/data/pubblished"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginLeft="@dimen/common_spacing"
+        app:layout_constraintBottom_toBottomOf="@id/avatar"
+        app:layout_constraintStart_toEndOf="@id/avatar" />
 
-        android:layout_marginTop="16dp"
-        android:text="Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы меняемся сами и помогаем меняться студентам: расти от новичков до уверенных профессионалов.  Но самое важное остаётся — наша вера в то, что в каждом заложена сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. А наша миссия — помочь выбрать путь и начать цепочку перемен → http://netolo.gy/fyb"
+    <TextView
+        android:id="@+id/news"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
+        tools:text="@sample/posts.json/data/content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avatar" />
 
+
     <ImageView
         android:id="@+id/share"
-        android:layout_width="36dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
         android:contentDescription="TODO"
         app:layout_constraintStart_toEndOf="@+id/count_like"
         app:layout_constraintTop_toTopOf="@+id/count_like"
@@ -86,66 +90,75 @@
 
     <ImageView
         android:id="@+id/visio"
-        android:layout_width="36dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="124dp"
-        android:contentDescription="TODO"
-        app:layout_constraintStart_toEndOf="@+id/share_news"
-        app:layout_constraintTop_toTopOf="@+id/share_news"
-        app:srcCompat="@drawable/ic_baseline_visibility_24" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/indent_icon_count"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@id/count_visio"
+        app:layout_constraintEnd_toStartOf="@id/count_visio"
+        app:layout_constraintTop_toTopOf="@id/count_visio"
+        app:srcCompat="@drawable/ic_baseline_visibility_24"
+        android:layout_marginRight="@dimen/indent_icon_count" />
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/count_visio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/indent"
+        android:layout_marginEnd="@dimen/common_spacing"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/barrier"
+        tools:text="700" />
 
     <TextView
         android:id="@+id/count_like"
-        android:layout_width="46dp"
-        android:layout_height="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginStart="@dimen/indent_icon_count"
+        android:layout_marginLeft="@dimen/indent_icon_count"
         android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/like"
         app:layout_constraintTop_toTopOf="@+id/like" />
 
     <TextView
         android:id="@+id/share_news"
-        android:layout_width="36dp"
-        android:layout_height="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginStart="@dimen/indent_icon_count"
+        android:layout_marginLeft="@dimen/indent_icon_count"
         android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/share"
         app:layout_constraintTop_toTopOf="@+id/share" />
 
-    <TextView
-        android:id="@+id/count_visio"
-        android:layout_width="45dp"
-        android:layout_height="25dp"
-        android:textAlignment="center"
-        app:layout_constraintStart_toEndOf="@+id/visio"
-        app:layout_constraintTop_toTopOf="@+id/visio" />
+
 
     <ImageView
         android:id="@+id/like"
-        android:layout_width="36dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
         android:contentDescription="TODO"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/news"
         app:srcCompat="@drawable/ic_baseline_favorite_24" />
 
-    <TextView
-        android:id="@+id/date_news"
-        android:layout_width="99dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="16dp"
-        android:text="21 мая в 18:36"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/avatar"
-        app:layout_constraintTop_toBottomOf="@+id/title_news" />
+
 
     <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="news"
-        tools:layout_editor_absoluteY="731dp" />
+        app:constraint_referenced_ids="news" />
 
     <TextView
         android:id="@+id/polosa"
@@ -153,7 +166,6 @@
         android:layout_height="3dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-
         android:layout_marginEnd="16dp"
         android:background="#F30F0F"
         android:text="                           "
@@ -162,3 +174,5 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
