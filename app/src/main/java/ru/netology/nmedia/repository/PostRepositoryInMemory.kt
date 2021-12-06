@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import ru.netology.nmedia.dto.Post
 
 
-class PostRepositoryInMemory: PostRepository {
+class PostRepositoryInMemory : PostRepository {
 
     var post = Post(
         id = 1,
@@ -21,16 +21,16 @@ class PostRepositoryInMemory: PostRepository {
         visioCount = 1000
 
 
-        )
+    )
     private val data = MutableLiveData(post)
 
     override fun get(): LiveData<Post> = data
 
     override fun like() {
-        val counter = if(post.likedByMe)
+        val counter = if (post.likedByMe)
             post.likesCount - 1 else
-                post.likesCount + 1
-post = post.copy(likedByMe = !post.likedByMe, likesCount = counter)
+            post.likesCount + 1
+        post = post.copy(likedByMe = !post.likedByMe, likesCount = counter)
         data.value = post
     }
 
